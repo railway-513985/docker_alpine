@@ -17,9 +17,8 @@ RUN mkdir -p /home/znc/.znc/configs && \
     chmod 644 /home/znc/.znc/configs/znc.conf
 
 # 端口和启动
-EXPOSE 6667
-# EXPOSE 8080
+EXPOSE 8080
 
 CMD ["su", "znc", "-c", "znc"]
 
-# CMD ["su", "znc", "-c", "znc && caddy reverse-proxy --from :8080 --to 127.0.0.1:6667"]
+# CMD ["su", "znc", "-c", "znc && caddy reverse-proxy --from :8080 --to 127.0.0.1:8080"]
