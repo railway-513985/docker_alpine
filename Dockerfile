@@ -15,4 +15,5 @@ RUN useradd -ms /bin/bash znc && \
 
 # 端口和启动
 EXPOSE 8080
+EXPOSE 8081
 CMD ["su", "znc", "-c", "znc && caddy reverse-proxy --from :8080 --to 127.0.0.1:8081"]
