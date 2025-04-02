@@ -4,13 +4,17 @@ COPY znc.conf /home/znc/.znc/configs/znc.conf
 RUN useradd -ms /bin/bash znc && \
     apt update && \
     apt install -y znc curl && \
-    chmod 777 /home/znc/.znc/configs/znc.conf && \
     apt install -y debian-keyring debian-archive-keyring apt-transport-https && \
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg && \
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list && \
     apt update && \
     apt install caddy && \
     apt clean
+
+RUN mkdir -p /home/znc/.znc/configs && \
+    chown -R znc:znc /home/znc/.znc && \
+    chmod 755 /home/znc/.znc && \
+    chmod 644 /home/znc/.znc/configs/znc.conf
 
 # 端口和启动
 EXPOSE 8080
