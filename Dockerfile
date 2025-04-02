@@ -17,7 +17,7 @@ RUN mkdir -p /home/znc/.znc/configs && \
     chmod 644 /home/znc/.znc/configs/znc.conf
 
 # 端口和启动
-EXPOSE 8080
+EXPOSE 6667
 # EXPOSE 8081
 
 CMD ["su", "znc", "-c", "znc"]
