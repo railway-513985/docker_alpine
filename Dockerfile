@@ -10,8 +10,7 @@ RUN useradd -ms /bin/bash znc && \
     curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list && \
     apt update && \
     apt install caddy && \
-    apt clean && \
-    rm -rf /var/lib/apt/lists/* 
+    apt clean
 
 # 端口和启动
 EXPOSE 8080
